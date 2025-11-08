@@ -16,8 +16,8 @@ interface TypingAnimationProps {
 
 export default function TypingAnimation({
   text,
-  codeTypingSpeed = 30,
-  transformSpeed = 50,
+  codeTypingSpeed = 50,
+  transformSpeed = 80,
   pauseBeforeTransform = 200,
   className = 'text-6xl md:text-8xl font-extrabold text-center tracking-wide text-black dark:text-white',
   fullScreen = true,

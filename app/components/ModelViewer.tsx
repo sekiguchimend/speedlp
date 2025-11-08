@@ -26,7 +26,7 @@ export default function ModelViewer() {
         <Suspense fallback={null}>
           <Model />
         </Suspense>
-        <OrbitControls enableZoom={true} enablePan={true} />
+        <OrbitControls enableZoom={false} enablePan={true} />
       </Canvas>
     </div>
   );
