@@ -5,18 +5,24 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
 interface ModelProps {
-  scrollProgress: number;
+  isMoving: boolean;
 }
 
-function Model({ scrollProgress }: ModelProps) {
+function Model({ isMoving }: ModelProps) {
   const { scene } = useGLTF("/com.glb");
   const modelRef = useRef<any>();
+  const isMovingRef = useRef(isMoving);
+
+  // isMovingの最新値をrefに保存
+  isMovingRef.current = isMoving;
 
   useFrame((state, delta) => {
     if (modelRef.current) {
-      // 移行期間（0.5-1.0）は回転速度を速くする
-      const isTransitioning = scrollProgress > 0.5 && scrollProgress < 1.0;
-      const rotationSpeed = isTransitioning ? 0.8 : 0.2;
+      // 移動中は回転速度を速くする
+      const rotationSpeed = isMovingRef.current ? 2.0 : 0.2;
+      if (Math.random() < 0.01) { // 1%の確率でログ出力
+        console.log('Model isMoving:', isMovingRef.current, 'rotationSpeed:', rotationSpeed);
+      }
       modelRef.current.rotation.y += delta * rotationSpeed;
     }
   });
@@ -25,17 +31,17 @@ function Model({ scrollProgress }: ModelProps) {
 }
 
 interface ModelViewerProps {
-  scrollProgress?: number;
+  isMoving?: boolean;
 }
 
-export default function ModelViewer({ scrollProgress = 0 }: ModelViewerProps) {
+export default function ModelViewer({ isMoving = false }: ModelViewerProps) {
   return (
     <div className="w-full h-full">
       <Canvas camera={{ position: [2, 2, 7], fov: 40 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Suspense fallback={null}>
-          <Model scrollProgress={scrollProgress} />
+          <Model isMoving={isMoving} />
         </Suspense>
         <OrbitControls enableZoom={false} enablePan={true} />
       </Canvas>
