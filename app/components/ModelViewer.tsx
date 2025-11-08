@@ -10,7 +10,7 @@ interface ModelProps {
 
 function Model({ isMoving }: ModelProps) {
   const { scene } = useGLTF("/com.glb");
-  const modelRef = useRef<any>();
+  const modelRef = useRef<any>(null);
   const isMovingRef = useRef(isMoving);
 
   // isMovingの最新値をrefに保存

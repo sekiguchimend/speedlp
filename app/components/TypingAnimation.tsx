@@ -129,7 +129,7 @@ export default function TypingAnimation({
       >
         {(() => {
           const chars = displayText.split('');
-          const result: JSX.Element[] = [];
+          const result: React.JSX.Element[] = [];
           let i = 0;
 
           while (i < chars.length) {
