@@ -8,7 +8,7 @@ export default function Home() {
       <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-black">
         <StickyModel />
         <section className="relative min-h-screen w-full flex items-center px-8 md:px-16 -mt-[200vh]">
-          <div className="relative z-10 flex flex-col gap-16 max-w-[45%]">
+          <div className="relative z-10 flex flex-col gap-16">
             <TypingAnimation
               text="サイトやアプリにおいて"
               className="text-4xl md:text-6xl font-extrabold text-left tracking-wide text-black dark:text-white"
