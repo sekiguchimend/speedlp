@@ -6,10 +6,8 @@ export default function Home() {
     <>
       <TypingAnimation text="ページのスピードこそ命" />
       <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-black">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <StickyModel />
-        </div>
-        <section className="relative min-h-screen w-full flex items-center px-8 md:px-16">
+        <StickyModel />
+        <section className="relative min-h-screen w-full flex items-center px-8 md:px-16 -mt-[200vh]">
           <div className="relative z-10 flex flex-col gap-16 max-w-[45%]">
             <TypingAnimation
               text="サイトやアプリにおいて"

@@ -25,18 +25,19 @@ export default function StickyModel() {
   }, []);
 
   // 0-0.5: 右側、0.5-1: 左側へ移動
-  const isLeftSide = scrollProgress > 0.5;
+  // scrollProgress 0.5-1.0の範囲で右(50%)から左(0%)にスムーズに移動
+  const moveProgress = Math.max(0, Math.min(1, (scrollProgress - 0.5) * 2));
+  const leftPosition = 50 - (moveProgress * 50); // 50% -> 0%
 
   return (
-    <div ref={containerRef} className="relative w-full h-full">
+    <div ref={containerRef} className="relative w-full" style={{ height: '200vh' }}>
       <div
-        className="sticky top-0 h-screen w-1/2 z-0 transition-all duration-700 ease-in-out"
+        className="sticky top-0 h-screen w-1/2 z-0 pointer-events-none"
         style={{
-          marginLeft: isLeftSide ? '0' : 'auto',
-          marginRight: isLeftSide ? 'auto' : '0',
+          marginLeft: `${leftPosition}%`,
         }}
       >
-        <ModelViewer />
+        <ModelViewer scrollProgress={scrollProgress} />
       </div>
     </div>
   );
