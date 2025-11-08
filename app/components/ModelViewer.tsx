@@ -19,10 +19,7 @@ function Model({ isMoving }: ModelProps) {
   useFrame((state, delta) => {
     if (modelRef.current) {
       // 移動中は回転速度を速くする
-      const rotationSpeed = isMovingRef.current ? 2.0 : 0.2;
-      if (Math.random() < 0.01) { // 1%の確率でログ出力
-        console.log('Model isMoving:', isMovingRef.current, 'rotationSpeed:', rotationSpeed);
-      }
+      const rotationSpeed = isMovingRef.current ? 5.0 : 0.2;
       modelRef.current.rotation.y += delta * rotationSpeed;
     }
   });

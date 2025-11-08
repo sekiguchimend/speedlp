@@ -15,7 +15,6 @@ export default function StickyModel() {
       const containerHeight = containerRef.current.offsetHeight;
       const progress = Math.max(0, Math.min(1, -rect.top / (containerHeight - window.innerHeight)));
 
-      console.log('scrollProgress:', progress, 'rect.top:', rect.top, 'containerHeight:', containerHeight);
       setScrollProgress(progress);
     };
 
@@ -29,9 +28,9 @@ export default function StickyModel() {
   // scrollProgress 0.5-1.0の範囲で右(50%)から左(0%)にスムーズに移動
   const moveProgress = Math.max(0, Math.min(1, (scrollProgress - 0.5) * 2));
   const leftPosition = 50 - (moveProgress * 50); // 50% -> 0%
-  const isMoving = moveProgress > 0 && moveProgress < 1;
 
-  console.log('moveProgress:', moveProgress, 'isMoving:', isMoving);
+  // 移動中（定位置到達前）は高速回転
+  const isMoving = moveProgress > 0 && moveProgress < 0.99;
 
   return (
     <div ref={containerRef} className="relative w-full" style={{ height: '200vh' }}>
