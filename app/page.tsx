@@ -35,7 +35,7 @@ export default function Home() {
           </div>
         </section>
         <section className="relative min-h-screen w-full flex items-center justify-end px-8 md:px-16">
-          <div className="relative z-10 flex gap-16 md:gap-24">
+          <div className="relative z-10 flex flex-row-reverse gap-16 md:gap-24">
             <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
               <TypingAnimation
                 text="速度が遅いだけで"
@@ -43,6 +43,7 @@ export default function Home() {
                 fullScreen={false}
                 showBackgroundTransition={false}
                 startOnScroll={true}
+                highlightWords={[{ word: "速度", backgroundColor: "#00e6e6" }]}
               />
             </div>
             <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
@@ -52,6 +53,7 @@ export default function Home() {
                 fullScreen={false}
                 showBackgroundTransition={false}
                 startOnScroll={true}
+                highlightWords={[{ word: "ユーザー", backgroundColor: "#00e6e6" }]}
               />
             </div>
             <div style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>
