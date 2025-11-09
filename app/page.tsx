@@ -67,6 +67,58 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="relative min-h-[200vh] w-full px-8 md:px-16">
+          {/* 右上 */}
+          <div className="absolute top-[20vh] right-1/4">
+            {/* 背景画像 */}
+            <img
+              src="/spra.png"
+              alt=""
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
+              style={{ zIndex: 0 }}
+            />
+            {/* 文字 */}
+            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
+              速さは信頼
+              <br />
+              遅さは不安
+            </p>
+          </div>
+
+          {/* 左中央 */}
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2">
+            {/* 背景画像 */}
+            <img
+              src="/spra2.png"
+              alt=""
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
+              style={{ zIndex: 0 }}
+            />
+            {/* 文字 */}
+            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
+              待たせない
+              <br />
+              体験を届ける
+            </p>
+          </div>
+
+          {/* 右下 */}
+          <div className="absolute bottom-[20vh] right-1/4">
+            {/* 背景画像 */}
+            <img
+              src="/spra3.png"
+              alt=""
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
+              style={{ zIndex: 0 }}
+            />
+            {/* 文字 */}
+            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
+              スピードこそ
+              <br />
+              最高のUX
+            </p>
+          </div>
+        </section>
       </div>
     </>
   );
