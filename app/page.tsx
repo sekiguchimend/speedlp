@@ -1,7 +1,14 @@
+'use client';
+
+import { useState } from "react";
 import TypingAnimation from "./components/TypingAnimation";
 import StickyModel from "./components/StickyModel";
 
 export default function Home() {
+  const [isCompleted1, setIsCompleted1] = useState(false);
+  const [isCompleted2, setIsCompleted2] = useState(false);
+  const [isCompleted3, setIsCompleted3] = useState(false);
+
   return (
     <>
       <TypingAnimation text="ページのスピードこそ命" />
@@ -74,15 +81,28 @@ export default function Home() {
             <img
               src="/spra.png"
               alt=""
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
-              style={{ zIndex: 0 }}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none transition-opacity duration-100"
+              style={{ zIndex: 0, opacity: isCompleted1 ? 1 : 0 }}
             />
             {/* 文字 */}
-            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
-              速さは信頼
-              <br />
-              遅さは不安
-            </p>
+            <div className="relative max-w-md" style={{ zIndex: 1 }}>
+              <TypingAnimation
+                text={"速さは信頼、\n遅さは不安"}
+                className="text-4xl md:text-6xl font-extrabold text-center tracking-wide leading-tight transition-colors duration-100"
+                fullScreen={false}
+                showBackgroundTransition={false}
+                startOnScroll={true}
+                codeTypingSpeed={30}
+                transformSpeed={50}
+                onComplete={() => setTimeout(() => setIsCompleted1(true), 0)}
+              />
+              <style jsx>{`
+                div :global(h1) {
+                  color: ${isCompleted1 ? '#fff' : '#323232'} !important;
+                  white-space: pre-line;
+                }
+              `}</style>
+            </div>
           </div>
 
           {/* 左中央 */}
@@ -91,15 +111,28 @@ export default function Home() {
             <img
               src="/spra2.png"
               alt=""
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
-              style={{ zIndex: 0 }}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none transition-opacity duration-100"
+              style={{ zIndex: 0, opacity: isCompleted2 ? 1 : 0 }}
             />
             {/* 文字 */}
-            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
-              待たせない
-              <br />
-              体験を届ける
-            </p>
+            <div className="relative max-w-md" style={{ zIndex: 1 }}>
+              <TypingAnimation
+                text={"待たせない、\n体験を届ける"}
+                className="text-4xl md:text-6xl font-extrabold text-center tracking-wide leading-tight transition-colors duration-100"
+                fullScreen={false}
+                showBackgroundTransition={false}
+                startOnScroll={true}
+                codeTypingSpeed={30}
+                transformSpeed={50}
+                onComplete={() => setTimeout(() => setIsCompleted2(true), 0)}
+              />
+              <style jsx>{`
+                div :global(h1) {
+                  color: ${isCompleted2 ? '#fff' : '#323232'} !important;
+                  white-space: pre-line;
+                }
+              `}</style>
+            </div>
           </div>
 
           {/* 右下 */}
@@ -108,15 +141,28 @@ export default function Home() {
             <img
               src="/spra3.png"
               alt=""
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none"
-              style={{ zIndex: 0 }}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] max-w-none h-auto pointer-events-none transition-opacity duration-100"
+              style={{ zIndex: 0, opacity: isCompleted3 ? 1 : 0 }}
             />
             {/* 文字 */}
-            <p className="relative text-4xl md:text-6xl font-extrabold text-left tracking-wide text-white leading-tight max-w-md" style={{ zIndex: 1 }}>
-              スピードこそ
-              <br />
-              最高のUX
-            </p>
+            <div className="relative max-w-md" style={{ zIndex: 1 }}>
+              <TypingAnimation
+                text={"スピードこそ、\n最高のUX"}
+                className="text-4xl md:text-6xl font-extrabold text-center tracking-wide leading-tight transition-colors duration-100"
+                fullScreen={false}
+                showBackgroundTransition={false}
+                startOnScroll={true}
+                codeTypingSpeed={30}
+                transformSpeed={50}
+                onComplete={() => setTimeout(() => setIsCompleted3(true), 0)}
+              />
+              <style jsx>{`
+                div :global(h1) {
+                  color: ${isCompleted3 ? '#fff' : '#323232'} !important;
+                  white-space: pre-line;
+                }
+              `}</style>
+            </div>
           </div>
         </section>
       </div>

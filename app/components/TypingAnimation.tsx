@@ -12,6 +12,7 @@ interface TypingAnimationProps {
   showBackgroundTransition?: boolean;
   startOnScroll?: boolean;
   highlightWords?: Array<{ word: string; backgroundColor: string }>;
+  onComplete?: () => void;
 }
 
 export default function TypingAnimation({
@@ -24,6 +25,7 @@ export default function TypingAnimation({
   showBackgroundTransition = true,
   startOnScroll = false,
   highlightWords = [],
+  onComplete,
 }: TypingAnimationProps) {
   const targetText = text;
   const codeChars = 'abcdefghijklmnopqrstuvwxyz0123456789{}[]()<>=+-*/;';
@@ -99,11 +101,14 @@ export default function TypingAnimation({
         // 変換完了後、0.3秒待ってから色を変更
         const timer = setTimeout(() => {
           setIsCompleted(true);
+          if (onComplete) {
+            onComplete();
+          }
         }, 300);
         return () => clearTimeout(timer);
       }
     }
-  }, [isVisible, displayText, phase, transformIndex, targetText, codeChars, codeTypingSpeed, transformSpeed, pauseBeforeTransform, isCompleted]);
+  }, [isVisible, displayText, phase, transformIndex, targetText, codeChars, codeTypingSpeed, transformSpeed, pauseBeforeTransform, isCompleted, onComplete]);
 
   return (
     <div
