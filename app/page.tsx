@@ -4,6 +4,7 @@ import TypingAnimation from "./components/TypingAnimation";
 import StickyModel from "./components/StickyModel";
 import ImageTextSection from "./components/ImageTextSection";
 import VerticalTextSection from "./components/VerticalTextSection";
+import AnimatedResult from "./components/AnimatedResult";
 
 // 定数定義
 const HIGHLIGHT_COLOR = "#00e6e6";
@@ -68,6 +69,7 @@ export default function Home() {
             />
           ))}
         </section>
+        <AnimatedResult />
       </div>
     </>
   );
